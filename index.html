@@ -27,29 +27,20 @@
             --matrix-code-font: 'Roboto Mono', monospace;
             --matrix-widget-background: rgba(0, 0, 0, 0.7);
             --matrix-widget-border: #ff0033;
-            /* Neon Vampire Red */
             --matrix-highlight: #0f0;
-            /* Highlight color for interactive elements */
             --matrix-hover-effect: rgba(0, 255, 0, 0.1);
-            /* Subtle hover effect */
             --matrix-shadow: 0 0 10px var(--matrix-green);
-            /* Glowing text shadow */
         }
 
         body {
             font-family: 'Roboto Mono', monospace;
             background-color: var(--matrix-dark-blue);
             color: var(--matrix-text-color);
-            /* Consider using a looping Matrix-style background animation */
-            /* background-image: url('matrix-background.gif'); */
             background-size: cover;
             overflow-x: hidden;
-            /* Prevent horizontal scroll */
         }
 
-        h1,
-        h2,
-        h3 {
+        h1, h2, h3 {
             color: var(--matrix-green);
             text-shadow: 0 0 5px var(--matrix-green);
         }
@@ -68,27 +59,21 @@
             top: 10px;
             right: 10px;
             width: 200px;
-            /* Smaller width */
             background-color: rgba(0, 0, 0, 0.5);
-            /* Adjust transparency */
             border: 2px solid var(--matrix-widget-border);
             border-radius: 5px;
             padding: 5px;
-            /* Smaller padding */
             z-index: 1000;
             box-shadow: var(--matrix-shadow);
             text-align: center;
             font-size: 0.8rem;
-            /* Smaller font size */
         }
 
         #music-player-widget h2 {
             font-size: 1em;
             margin-bottom: 3px;
             color: var(--matrix-widget-border);
-            /* Neon Vampire Red for title */
             text-shadow: 0 0 5px var(--matrix-widget-border);
-            /* Glowing effect */
         }
 
         #music-player-widget .track-info {
@@ -98,7 +83,6 @@
 
         #music-player-widget .track-info p {
             font-size: 0.7rem;
-            /* Smaller font size */
             color: var(--matrix-text-color);
             margin: 0;
         }
@@ -107,12 +91,9 @@
             background-color: transparent;
             border: none;
             color: var(--matrix-widget-border);
-            /* Neon Vampire Red */
             cursor: pointer;
             font-size: 1em;
-            /* Smaller icon size */
             margin: 0 3px;
-            /* Smaller margin */
             transition: color 0.3s ease;
         }
 
@@ -122,14 +103,11 @@
 
         #music-player-widget input[type="range"] {
             width: 90%;
-            /* Adjust range width */
             margin: 5px auto;
             background: rgba(255, 0, 51, 0.2);
-            /* Neon Vampire Red translucent */
             border-radius: 5px;
             outline: none;
             height: 3px;
-            /* Thinner range slider */
         }
 
         #music-player-widget input[type="range"]::-webkit-slider-thumb {
@@ -137,13 +115,11 @@
             width: 10px;
             height: 10px;
             background: var(--matrix-widget-border);
-            /* Neon Vampire Red thumb */
             border-radius: 50%;
             cursor: pointer;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         }
 
-        /* Style the social links */
         .social-links {
             text-align: center;
             margin-top: 20px;
@@ -154,7 +130,6 @@
             margin: 0 10px;
             color: var(--matrix-light-green);
             font-size: 1.5em;
-            /* Adjust the size as needed */
             transition: color 0.3s ease;
         }
 
@@ -165,7 +140,6 @@
 </head>
 
 <body>
-    <!-- Music Player Widget -->
     <div id="music-player-widget">
         <h2>Now Playing</h2>
         <div class="track-info">
@@ -249,8 +223,7 @@
                     <p>A brief overview of the project. Utilized technologies: HTML, CSS, JavaScript. <a
                             href="project1-github-url" target="_blank" rel="noopener noreferrer">View on GitHub</a>
                     </p>
-                    <a href="#" class="project-link" data-project-id="1">View Project Details</a> <!-- Link to the
-                    detail modal or page -->
+                    <a href="#" class="project-link" data-project-id="1">View Project Details</a>
                 </article>
 
                 <article class="portfolio-item" data-category="mobile-app" data-tags="react-native, firebase">
@@ -260,8 +233,7 @@
                     <p>Description of the project highlighting the technology used. <a href="project2-github-url"
                             target="_blank" rel="noopener noreferrer">View Code</a></p>
                     <a href="#" class="project-link" data-project-id="2">See it live</a> <!-- Link to the
-                    detail modal or page -->
-                </article>
+                    <a href="#" class="project-link" data-project-id="2">See it live</a>
 
             </div>
 
