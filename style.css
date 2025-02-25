@@ -1,41 +1,63 @@
+/* CSS Variables for the Matrix-Inspired Theme */
+:root {
+    --matrix-dark-blue: #000022;
+    --matrix-green: #00ff00;
+    --matrix-light-green: #00ff80;
+    --matrix-text-color: #dddddd;
+    --matrix-code-font: 'Roboto Mono', monospace;
+    --matrix-widget-background: rgba(0, 0, 0, 0.7);
+    --matrix-widget-border: #ff0033;
+    /* Neon Vampire Red */
+    --matrix-highlight: #0f0;
+    /* Highlight color for interactive elements */
+    --matrix-hover-effect: rgba(0, 255, 0, 0.1);
+    /* Subtle hover effect */
+    --matrix-shadow: 0 0 10px var(--matrix-green);
+    /* Glowing text shadow */
+}
+
 /* General Styles */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #e0f7fa;
-    color: #212121;
+    font-family: 'Roboto Mono', monospace;
+    background-color: var(--matrix-dark-blue);
+    color: var(--matrix-text-color);
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+    /* Optional: Matrix-style background animation (CSS or JavaScript) */
+    /* Example using CSS (simple fading animation): */
+    /* animation: matrix-fade 10s infinite alternate; */
 }
+
+/* Example Animation: Commented out for now, add it in if desired.*/
+/* @keyframes matrix-fade {
+    from { background-color: var(--matrix-dark-blue); }
+    to { background-color: #000044; }
+} */
 
 /* Header Styles */
 header {
-    background-image: url('path/to/your/header-background.jpg'); /* Replace with your actual header image path */
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    padding: 120px 0;
+    background: none;
+    /* Remove background */
+    padding: 50px 0;
     text-align: center;
     position: relative;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: none;
+    /* Remove box shadow */
+    border-bottom: 2px solid var(--matrix-green);
+    /* Matrix-style border */
 }
 
-header::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 150, 136, 0.6);
-    z-index: 1;
-    transition: background-color 0.3s ease;
+/* Remove Header Background Overlay */
+/* header::before {
+    display: none;
 }
 
 header:hover::before {
-    background-color: rgba(0, 150, 136, 0.7);
-}
+    display: none;
+} */
 
 .header-content {
     position: relative;
@@ -43,15 +65,45 @@ header:hover::before {
 }
 
 header h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
+    /* Slightly smaller */
     margin: 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: var(--matrix-shadow);
 }
 
 header p {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
+    /* Slightly smaller */
     margin: 10px 0 0;
     font-weight: 300;
+    color: var(--matrix-light-green);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav a {
+    color: var(--matrix-light-green);
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    color: var(--matrix-green);
+    text-shadow: var(--matrix-shadow);
+    background-color: var(--matrix-hover-effect);
 }
 
 /* Main Content Styles */
@@ -63,145 +115,278 @@ section {
     padding: 2.5rem;
     margin: 2rem auto;
     max-width: 900px;
-    background-color: #fff;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Darker section background */
+    box-shadow: var(--matrix-shadow);
+    /* Glowing shadow */
+    border-radius: 8px;
+    border: 1px solid var(--matrix-green);
+    /* Add a border */
     transition: box-shadow 0.3s ease;
 }
 
 section:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px var(--matrix-green);
+    /* Stronger hover effect */
 }
 
 h2 {
-    font-size: 2.5rem;
-    color: #009688;
+    font-size: 2.2rem;
+    /* Adjust size */
+    color: var(--matrix-green);
     margin-bottom: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    text-shadow: var(--matrix-shadow);
 }
 
 /* About Section */
 #about p {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     line-height: 1.7;
-    color: #424242;
+    color: var(--matrix-text-color);
+}
+
+/* Style the skills list */
+.skills-list {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skills-list li {
+    background-color: rgba(0, 255, 0, 0.1);
+    /* Subtle green background */
+    border: 1px solid var(--matrix-green);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: var(--matrix-light-green);
+    font-size: 0.9rem;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.skills-list li:hover {
+    background-color: rgba(0, 255, 0, 0.2);
+    transform: translateY(-2px);
 }
 
 /* Portfolio Section */
-#portfolio {
+#portfolio .portfolio-filters {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+#portfolio .portfolio-filters label {
+    color: var(--matrix-text-color);
+    margin-right: 10px;
+}
+
+#portfolio .portfolio-filters select,
+#portfolio .portfolio-filters input {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--matrix-green);
+    color: var(--matrix-light-green);
+    padding: 8px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#portfolio .portfolio-filters button {
+    background-color: var(--matrix-green);
+    color: var(--matrix-dark-blue);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#portfolio .portfolio-filters button:hover {
+    background-color: var(--matrix-light-green);
+}
+
+#portfolio-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 25px;
+    justify-content: center;
 }
 
-#portfolio .project {
-    background-color: #f1f8e9;
-    border: none;
-    border-radius: 15px;
-    padding: 25px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+#portfolio .portfolio-item {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--matrix-green);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--matrix-shadow);
     width: calc(33.333% - 25px);
     box-sizing: border-box;
     transition: transform 0.3s, box-shadow 0.3s;
+    color: var(--matrix-text-color);
+    /* Ensure text is readable */
 }
 
-#portfolio .project:hover {
+#portfolio .portfolio-item:hover {
     transform: translateY(-8px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px var(--matrix-green);
 }
 
-#portfolio .project img {
+#portfolio .portfolio-item img {
     width: 100%;
-    border-radius: 12px;
+    border-radius: 8px;
     margin-bottom: 15px;
     transition: opacity 0.3s ease;
 }
 
-#portfolio .project img:hover {
+#portfolio .portfolio-item img:hover {
     opacity: 0.9;
 }
 
-#portfolio .project h3 {
-    font-size: 1.6rem;
+#portfolio .portfolio-item h3 {
+    font-size: 1.4rem;
     margin: 0 0 12px;
-    color: #2e7d32;
+    color: var(--matrix-green);
+    text-shadow: var(--matrix-shadow);
 }
 
-#portfolio .project p {
+#portfolio .portfolio-item p {
+    font-size: 1rem;
+    color: var(--matrix-text-color);
+}
+
+#portfolio .portfolio-item a {
+    color: var(--matrix-light-green);
+    text-decoration: none;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Darker background */
+}
+
+.modal-content {
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 1px solid var(--matrix-green);
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    color: var(--matrix-text-color);
+    box-shadow: var(--matrix-shadow);
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--matrix-green);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#modal-title {
+    color: var(--matrix-green);
+    text-shadow: var(--matrix-shadow);
+}
+
+#modal-description {
     font-size: 1.1rem;
-    color: #558b2f;
+    line-height: 1.7;
 }
 
-#portfolio div,
-#blog div {
-    margin-bottom: 2rem;
-    border-bottom: 1px solid #c8e6c9;
-    padding-bottom: 1.2rem;
+#modal-image,
+#modal-video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
 }
 
-#portfolio h3,
-#blog h3 {
-    margin-top: 0;
+#modal-live-url,
+#modal-github-url {
+    display: block;
+    margin-top: 10px;
+    color: var(--matrix-light-green);
 }
 
 /* Blog Section */
-#blog .post {
-    background-color: #fff3e0;
-    border: none;
-    border-radius: 15px;
-    padding: 25px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+#blog .blog-post {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--matrix-green);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--matrix-shadow);
     margin-bottom: 25px;
     transition: box-shadow 0.3s ease;
+    color: var(--matrix-text-color);
 }
 
-#blog .post:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+#blog .blog-post:hover {
+    box-shadow: 0 0 15px var(--matrix-green);
 }
 
-#blog .post h3 {
-    font-size: 1.6rem;
+#blog .blog-post h3 {
+    font-size: 1.4rem;
     margin: 0 0 12px;
-    color: #e65100;
+    color: var(--matrix-green);
+    text-shadow: var(--matrix-shadow);
 }
 
-#blog .post p {
-    font-size: 1.1rem;
-    color: #f4511e;
+#blog .blog-post p {
+    font-size: 1rem;
+    color: var(--matrix-text-color);
 }
 
-a {
-    color: #03a9f4;
-    text-decoration: none;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
+/* Code Blocks */
+.code-block {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid var(--matrix-green);
+    border-radius: 5px;
+    padding: 10px;
+    font-family: var(--matrix-code-font);
+    overflow-x: auto;
+    /* Enable horizontal scrolling for long code */
+    color: var(--matrix-light-green);
+    white-space: pre-wrap;
+    /* preserve line breaks */
 }
 
-a:hover {
-    text-decoration: none;
-    color: #0277bd;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-#loadingIndicator {
-    text-align: center;
-    padding: 2.5rem;
-    font-size: 1.3rem;
-    color: #00796b;
-}
-
+/* Contact Section */
 #contact h2 {
     text-align: center;
     margin-bottom: 1.75rem;
+    color: var(--matrix-green);
+    text-shadow: var(--matrix-shadow);
 }
 
-/* Contact Form Styles */
 #contactForm {
-    background-color: #fff;
-    border: none;
-    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--matrix-green);
+    border-radius: 8px;
     padding: 30px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--matrix-shadow);
     display: flex;
     flex-direction: column;
 }
@@ -209,7 +394,7 @@ a:hover {
 #contactForm label {
     font-weight: 500;
     margin-top: 12px;
-    color: #37474f;
+    color: var(--matrix-light-green);
 }
 
 #contactForm input,
@@ -217,24 +402,26 @@ a:hover {
     width: 100%;
     padding: 12px;
     margin-top: 8px;
-    border: 1px solid #b0bec5;
-    border-radius: 8px;
+    border: 1px solid var(--matrix-green);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--matrix-text-color);
+    border-radius: 5px;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 #contactForm input:focus,
 #contactForm textarea:focus {
-    border-color: #03a9f4;
+    border-color: var(--matrix-green);
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(3, 169, 244, 0.25);
+    box-shadow: 0 0 0 0.2rem rgba(0, 255, 0, 0.25);
 }
 
 #contactForm button {
-    background-color: #03a9f4;
+    background-color: var(--matrix-green);
     border: none;
-    color: #fff;
+    color: var(--matrix-dark-blue);
     padding: 14px 28px;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
     margin-top: 15px;
@@ -244,7 +431,7 @@ a:hover {
 }
 
 #contactForm button:hover {
-    background-color: #0288d1;
+    background-color: var(--matrix-light-green);
     transform: translateY(-2px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
@@ -258,140 +445,265 @@ a:hover {
     margin-top: 1.5rem;
     text-align: center;
     font-size: 1.1rem;
-    color: #2e7d32;
+    color: var(--matrix-light-green);
 }
 
 /* Music Player Styles */
-#music-player {
-    background-color: #e8f5e9;
-    border: none;
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+#music-player-widget {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 200px;
+    /* Smaller width */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Adjust transparency */
+    border: 2px solid var(--matrix-widget-border);
+    border-radius: 5px;
+    padding: 5px;
+    /* Smaller padding */
+    z-index: 1000;
+    box-shadow: var(--matrix-shadow);
     text-align: center;
+    font-size: 0.8rem;
+    /* Smaller font size */
 }
 
-.music-player img {
-    width: 100%;
-    max-width: 350px;
-    border-radius: 12px;
-    margin-bottom: 25px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+#music-player-widget h2 {
+    font-size: 1em;
+    margin-bottom: 3px;
+    color: var(--matrix-widget-border);
+    /* Neon Vampire Red for title */
+    text-shadow: 0 0 5px var(--matrix-widget-border);
+    /* Glowing effect */
 }
 
-.music-player img:hover {
-    transform: scale(1.05);
+#music-player-widget .track-info {
+    margin-bottom: 5px;
+    color: var(--matrix-text-color);
 }
 
-.track-info {
-    margin-bottom: 25px;
-}
-
-.track-info h2 {
-    font-size: 1.7rem;
-    margin: 0;
-    color: #1b5e20;
-}
-
-.track-info p {
-    font-size: 1.3rem;
-    color: #33691e;
+#music-player-widget .track-info p {
+    font-size: 0.7rem;
+    /* Smaller font size */
+    color: var(--matrix-text-color);
     margin: 0;
 }
 
-.controls {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 30px;
-}
-
-.controls button {
-    background-color: #4caf50;
+#music-player-widget .controls button {
+    background-color: transparent;
     border: none;
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 8px;
+    color: var(--matrix-widget-border);
+    /* Neon Vampire Red */
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1em;
+    /* Smaller icon size */
+    margin: 0 3px;
+    /* Smaller margin */
+    transition: color 0.3s ease;
 }
 
-.controls button:hover {
-    background-color: #388e3c;
-    transform: scale(1.05);
+#music-player-widget .controls button:hover {
+    color: var(--matrix-light-green);
 }
 
-.controls button:active {
-    transform: scale(1);
-}
-
-.controls button.active {
-    background-color: #689f38;
-}
-
-input[type="range"] {
-    width: 100%;
-    max-width: 400px;
-    margin: 15px auto;
-    display: block;
-    appearance: none;
-    -webkit-appearance: none;
-    height: 8px;
-    background: #b2dfdb;
+#music-player-widget input[type="range"] {
+    width: 90%;
+    /* Adjust range width */
+    margin: 5px auto;
+    background: rgba(255, 0, 51, 0.2);
+    /* Neon Vampire Red translucent */
     border-radius: 5px;
     outline: none;
+    height: 3px;
+    /* Thinner range slider */
 }
 
-input[type="range"]::-webkit-slider-thumb {
-    appearance: none;
+#music-player-widget input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 20px;
-    height: 20px;
-    background: #009688;
+    width: 10px;
+    height: 10px;
+    background: var(--matrix-widget-border);
+    /* Neon Vampire Red thumb */
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease;
-}
-
-input[type="range"]::-webkit-slider-thumb:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 /* Footer Styles */
 footer {
-    background-color: #263238;
-    color: #b0bec5;
+    background-color: #000;
+    color: var(--matrix-light-green);
     text-align: center;
     padding: 25px 0;
     margin-top: 50px;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: none;
+    /* Remove shadow */
+    border-top: 2px solid var(--matrix-green);
+    /* Matrix-style border */
+    font-size: 0.9rem;
 }
 
 footer p {
     margin: 0;
-    font-size: 1.1rem;
 }
 
-/* Media Queries for Responsiveness */
+/* Responsiveness (Adjust as needed) */
 @media (max-width: 768px) {
     header h1 {
-        font-size: 2.8rem;
+        font-size: 2.5rem;
     }
 
     header p {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
 
-    #portfolio .project {
+    #portfolio .portfolio-item {
         width: calc(50% - 25px);
     }
 }
 
 @media (max-width: 576px) {
-    #portfolio .project {
+    #portfolio .portfolio-item {
         width: 100%;
     }
+}
+
+/* AddProject Section Styles */
+#addProject h2 {
+    text-align: center;
+    margin-bottom: 1.75rem;
+    color: var(--matrix-green);
+    text-shadow: var(--matrix-shadow);
+}
+
+#addProject form {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--matrix-green);
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: var(--matrix-shadow);
+    display: flex;
+    flex-direction: column;
+}
+
+#addProject label {
+    font-weight: 500;
+    margin-top: 12px;
+    color: var(--matrix-light-green);
+}
+
+#addProject input,
+#addProject textarea,
+#addProject select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid var(--matrix-green);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--matrix-text-color);
+    border-radius: 5px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#addProject input:focus,
+#addProject textarea:focus,
+#addProject select:focus {
+    border-color: var(--matrix-green);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 255, 0, 0.25);
+}
+
+#addProject button {
+    background-color: var(--matrix-green);
+    border: none;
+    color: var(--matrix-dark-blue);
+    padding: 14px 28px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#addProject button:hover {
+    background-color: var(--matrix-light-green);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#addProject button:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+#addProject #upload-message {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--matrix-light-green);
+}
+
+/* New added Interactive Elements */
+
+#interactiveUI {
+    position: relative;
+    padding: 3rem;
+    margin: 2rem auto;
+    max-width: 900px;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: var(--matrix-shadow);
+    border-radius: 8px;
+    border: 1px solid var(--matrix-green);
+    transition: box-shadow 0.3s ease;
+}
+
+#interactiveUI h2 {
+    text-align: center;
+    margin-bottom: 1.75rem;
+    color: var(--matrix-green);
+    text-shadow: var(--matrix-shadow);
+}
+
+#interactiveUI button {
+    background-color: var(--matrix-green);
+    border: none;
+    color: var(--matrix-dark-blue);
+    padding: 14px 28px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#interactiveUI button:hover {
+    background-color: var(--matrix-light-green);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#interactiveUI p {
+    color: var(--matrix-light-green);
+}
+
+.social-links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 10px;
+    color: var(--matrix-light-green);
+    font-size: 1.5em;
+    /* Adjust the size as needed */
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--matrix-green);
 }
