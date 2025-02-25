@@ -23,16 +23,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function loadHeader() {
     try {
-        const response = await fetch('data/header.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        document.getElementById('header-title').textContent = data.title || "Default Title"; // Provide default if data is missing
+        console.log("loadHeader() called");
+        const data = await fetchData('data/header.json'); // Use dataService
+        console.log("Data from header.json:", data);
+        document.getElementById('header-title').textContent = data.title || "Default Title";
         document.getElementById('header-subtitle').textContent = data.subtitle || "Default Subtitle";
+        console.log("Header title set to:", document.getElementById('header-title').textContent);
+        console.log("Header subtitle set to:", document.getElementById('header-subtitle').textContent);
     } catch (error) {
         console.error('Error loading header:', error);
         document.getElementById('header-title').textContent = "Default Title";
         document.getElementById('header-subtitle').textContent = "Default Subtitle";
     }
 }
+
+export async function fetchData(url) {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return await response.json();
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      throw error; // Re-throw the error so the calling function knows about it
+    }
+  }

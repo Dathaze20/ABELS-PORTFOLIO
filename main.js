@@ -34,47 +34,7 @@ async function loadHeader() {
     }
 }
 
-export const loadPortfolio = async () => {
-    try {
-        const data = await fetchData();
-        const portfolioSection = document.getElementById('portfolio');
-        data.portfolio.forEach(project => {
-            const projectDiv = document.createElement('div');
-            projectDiv.innerHTML = `
-                <h3>${project.title}</h3>
-                <p>${project.description}</p>
-                <a href="${project.link}">View Project</a>
-            `;
-            portfolioSection.appendChild(projectDiv);
-        });
-    } catch (error) {
-        console.error('Error loading portfolio:', error);
-        const portfolioSection = document.getElementById('portfolio');
-        portfolioSection.innerHTML = '<p>Error loading portfolio. Please try again later.</p>';
-    }
-};
-
-export const loadBlog = async () => {
-    try {
-        const data = await fetchData();
-        const blogSection = document.getElementById('blog');
-        data.blog.forEach(post => {
-            const postDiv = document.createElement('div');
-            postDiv.innerHTML = `
-                <h3>${post.title}</h3>
-                <p>Date: ${post.date}, Author: ${post.author}</p>
-                <p>${post.content}</p>
-                ${post.image ? `<img src="${post.image}" alt="${post.title}" width="200" loading="lazy">` : ''}
-                ${post.video ? `<video src="${post.video}" controls width="400" loading="lazy"></video>` : ''}
-            `;
-            blogSection.appendChild(postDiv);
-        });
-    } catch (error) {
-        console.error('Error loading blog:', error);
-        const blogSection = document.getElementById('blog');
-        blogSection.innerHTML = '<p>Error loading blog. Please try again later.</p>';
-    }
-};
+// Removed re-declaration of loadPortfolio and loadBlog
 
 export const handleContactForm = () => {
     const contactForm = document.getElementById('contactForm');
@@ -190,4 +150,4 @@ export const fetchData = async () => {
     }
 };
 
-<script type="module" src="js/main.js"></script>
+<script type="module" src="js/main.js"></script>// Removed re-declaration of fetchData
