@@ -73,18 +73,3 @@ async function loadHeader() {
     }
 }
 
-export async function fetchData(url) {
-    try {
-        console.log(`Fetching data from: ${url}`);
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        console.log(`Data fetched successfully from: ${url}`);
-        return data;
-    } catch (error) {
-        console.error(`Error fetching data from ${url}:`, error);
-        throw error; // Re-throw the error so the calling function knows about it.
-    }
-}
