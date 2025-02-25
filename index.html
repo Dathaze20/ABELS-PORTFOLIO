@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abel Arroyo - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: url('path/to/your/header-background.jpg') no-repeat center center/cover;
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            z-index: 2;
+            position: relative;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            margin: 10px 0 0;
+            z-index: 2;
+            position: relative;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        /* About Section */
+        #about p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        /* Portfolio Section */
+        #portfolio {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        #portfolio .project {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: calc(33.333% - 20px);
+            box-sizing: border-box;
+            transition: transform 0.3s;
+        }
+
+        #portfolio .project:hover {
+            transform: translateY(-10px);
+        }
+
+        #portfolio .project img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        #portfolio .project h3 {
+            font-size: 1.5rem;
+            margin: 0 0 10px;
+        }
+
+        #portfolio .project p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Blog Section */
+        #blog .post {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        #blog .post h3 {
+            font-size: 1.5rem;
+            margin: 0 0 10px;
+        }
+
+        #blog .post p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Contact Form Styles */
+        #contactForm {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #contactForm label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        #contactForm input,
+        #contactForm textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #contactForm button {
+            background-color: #007bff;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        #contactForm button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Music Player Styles */
+        #music-player {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .music-player img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .track-info {
+            margin-bottom: 20px;
+        }
+
+        .track-info h2 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .track-info p {
+            font-size: 1.2rem;
+            color: #666;
+            margin: 0;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .controls button {
+            background-color: #007bff;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .controls button:hover {
+            background-color: #0056b3;
+        }
+
+        .controls button.active {
+            background-color: #28a745;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            max-width: 300px;
+            margin: 10px auto;
+            display: block;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loadingIndicator">Loading...</div>
+
+    <header role="banner">
+        <div class="header-content">
+            <h1 id="header-title"></h1>
+            <p id="header-subtitle"></p>
+        </div>
+    </header>
+
+    <main role="main" class="container">
+        <section id="about" class="my-4">
+            <p></p>
+        </section>
+
+        <section id="portfolio" class="my-4"></section>
+
+        <section id="blog" class="my-4"></section>
+
+        <section id="contact" class="my-4">
+            <h2>Contact Me</h2>
+            <form id="contactForm" class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" class="form-control" required></textarea>
+
+                <button type="submit" class="btn btn-primary mt-3">Send</button>
+            </form>
+            <div id="formMessage" class="mt-3"></div>
+        </section>
+
+        <section id="music-player" class="my-4">
+            <div class="music-player">
+                <img id="album-art" src="default-album-art.jpg" alt="Album Art" loading="lazy">
+                <div class="track-info">
+                    <h2 id="track-title">Track Title</h2>
+                    <p id="artist">Artist Name</p>
+                </div>
+                <div class="controls">
+                    <button id="prev-track" tabindex="0" class="btn btn-secondary">Prev</button>
+                    <button id="play-pause" tabindex="0" class="btn btn-secondary">Play</button>
+                    <button id="next-track" tabindex="0" class="btn btn-secondary">Next</button>
+                    <button id="shuffle" tabindex="0" class="btn btn-secondary">Shuffle</button>
+                    <button id="repeat" tabindex="0" class="btn btn-secondary">Repeat</button>
+                </div>
+                <input type="range" id="progress-bar" value="0" tabindex="0" class="form-range">
+                <input type="range" id="volume-control" min="0" max="1" step="0.01" value="1" tabindex="0"
+                    class="form-range">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Abel Arroyo. All rights reserved.</p>
+    </footer>
+
+    ```html
+        <script type="module" src="js/main.js"></script>
+        <script type="module">
+            import { loadPortfolio } from './js/portfolio.js';
+            import { loadBlog } from './js/blog.js';
+            import { handleContactForm } from './js/contactForm.js';
+            import { initMusicPlayer } from './js/musicPlayer.js';
+    
+            document.addEventListener('DOMContentLoaded', () => {
+                const loadingIndicator = document.getElementById('loadingIndicator');
+                loadingIndicator.style.display = 'block';
+    
+                Promise.all([loadHeader(), loadPortfolio(), loadBlog()])
+                    .then(() => {
+                        loadingIndicator.style.display = 'none';
+                        initMusicPlayer();
+                    })
+                    .catch(error => {
+                        console.error('Error loading initial data:', error);
+                        loadingIndicator.textContent = "Error loading initial data. Please try again later.";
+                    });
+    
+                handleContactForm();
+            });
+    
+            async function loadHeader() {
+                try {
+                    const response = await fetch('data/header.json');
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const data = await response.json();
+                    document.getElementById('header-title').textContent = data.title || "Default Title"; // Provide default if data is missing
+                    document.getElementById('header-subtitle').textContent = data.subtitle || "Default Subtitle";
+                } catch (error) {
+                    console.error('Error loading header:', error);
+                    document.getElementById('header-title').textContent = "Default Title";
+                    document.getElementById('header-subtitle').textContent = "Default Subtitle";
+                }
+            }
+    
+            const tracks = [
+                {
+                    "title": "Track 1",
+                    "artist": "Artist 1",
+                    "file": "path/to/track1.mp3",
+                    "art": "path/to/art1.jpg"
+                },
+                {
+                    "title": "Track 2",
+                    "artist": "Artist 2",
+                    "file": "path/to/track2.mp3",
+                    "art": "path/to/art2.jpg"
+                }
+                // ... more tracks
+            ];
+        </script>
+</body>
+
+</html>
