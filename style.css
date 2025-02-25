@@ -690,6 +690,7 @@ footer p {
     color: var(--matrix-light-green);
 }
 
+/* Style the social links */
 .social-links {
     text-align: center;
     margin-top: 20px;
@@ -699,8 +700,7 @@ footer p {
     display: inline-block;
     margin: 0 10px;
     color: var(--matrix-light-green);
-    font-size: 1.5em;
-    /* Adjust the size as needed */
+    font-size: 1.5em; /* Adjust the size as needed */
     transition: color 0.3s ease;
 }
 
